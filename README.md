@@ -5,20 +5,15 @@
 GoalSync is a production-oriented in-house goal setting and tracking portal for enterprise HR performance workflows. It includes employee goal creation, L1 manager approvals, quarterly check-ins, admin governance, dashboards, reports, shared goals, email notifications, and audit logs.
 
 ## Quick Start From Git
-
 ```bash
 git clone https://github.com/callmesidhu/Nodejs-AtomQuest-hackathon
 cd AtomQuest
-npm install
-cp apps/api/.env.example apps/api/.env
-docker compose up -d postgres
-npm run migrate --workspace apps/api
-npm run seed
-npm run dev:api
-npm run dev:web
-```
 
-Open the app at `http://localhost:5173` and the API at `http://localhost:4000`.
+cp apps/api/.env.example apps/api/.env
+npm run start:full
+
+npm run stop:full
+```
 
 ## Stack
 
@@ -34,65 +29,6 @@ Open the app at `http://localhost:5173` and the API at `http://localhost:4000`.
 - Manager: `manager@goalsync.com` / `password123`
 - Admin: `admin@goalsync.com` / `password123`
 
-## Local Setup
-
-1. Install dependencies:
-
-```bash
-npm install
-```
-
-2. Configure the API:
-
-```bash
-cp apps/api/.env.example apps/api/.env
-```
-
-3. Start PostgreSQL with Docker:
-
-```bash
-docker compose up -d postgres
-```
-
-4. Run migrations and seed demo accounts:
-
-```bash
-npm run migrate --workspace apps/api
-npm run seed
-```
-
-5. Start the API and frontend:
-
-```bash
-npm run dev:api
-npm run dev:web
-```
-
-API: `http://localhost:4000`  
-Web: `http://localhost:5173`  
-Swagger docs: `http://localhost:4000/docs`
-
-## Full Local Docker
-
-This starts PostgreSQL and the full-stack GoalSync app. The app container runs Prisma migrations, seeds demo accounts, starts Express, and serves the React build.
-
-```bash
-docker compose up --build -d
-```
-
-Open:
-
-```text
-http://localhost:4000
-```
-
-Useful commands:
-
-```bash
-docker compose logs -f app
-docker compose down
-docker compose down -v
-```
 
 ## Environment Variables
 
@@ -189,8 +125,6 @@ Use this option when you want one Render Web Service to host both the API and Re
 - `POST /admin/users`
 
 ## Screenshots
-
-Add screenshots here after deployment:
 
 - Login
 - Employee dashboard
