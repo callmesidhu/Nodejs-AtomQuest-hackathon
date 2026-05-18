@@ -125,12 +125,19 @@ Use this option when you want one Render Web Service to host both the API and Re
 - `POST /admin/users`
 
 ## Screenshots
+<img width="1920" height="975" alt="{265B3B5A-01A5-4BD3-8892-64D61ED214C5}" src="https://github.com/user-attachments/assets/95497dc1-c5ac-4fdc-b7bd-e261eb712806" />
+<img width="1920" height="973" alt="{EED0BFB5-602A-4321-80C4-99EA92AB6620}" src="https://github.com/user-attachments/assets/d64993be-2154-4f4b-84aa-2f76e0b82499" />
+<img width="1920" height="973" alt="{C5D6CFE2-7A69-4E1B-BAF4-5926A4A11C8D}" src="https://github.com/user-attachments/assets/942ad164-c92a-408b-bd5f-121111f7509c" />
+<img width="1920" height="973" alt="{8982A225-C339-424E-9D33-66F56B8C0461}" src="https://github.com/user-attachments/assets/27ce8765-8703-4211-b624-f2971a3372d5" />
+<img width="1920" height="974" alt="{E3BCF041-FE95-41B1-9AD5-A097F291EE8E}" src="https://github.com/user-attachments/assets/bf1446e6-485d-4ae8-8c92-e1bee964853c" />
+<img width="1920" height="976" alt="{951C32F2-4DA6-46BA-BA34-6458C0BF190D}" src="https://github.com/user-attachments/assets/e228e49e-c2d1-44c1-b886-4b4e7eae735e" />
+<img width="1920" height="982" alt="{8DF7483D-C47E-4FFB-9071-941082D8FD41}" src="https://github.com/user-attachments/assets/5db98479-644c-4185-b461-93afbbe4d463" />
+<img width="1920" height="975" alt="{641F9B7C-8B37-4C34-8EC3-F9F9ED8CE50D}" src="https://github.com/user-attachments/assets/e33f920a-9991-47b5-a338-46f52e569840" />
 
-- Login
-- Employee dashboard
-- Goal sheet
-- Manager approvals
-- Admin audit logs
+
+
+
+
 
 ## Architecture
 
