@@ -108,6 +108,17 @@ Frontend variables live in `apps/web/.env`.
 - For Supabase on Render, use the transaction pooler URL for `DATABASE_URL` and the direct database URL for `DIRECT_URL`.
 - Run Prisma migration before first deploy: `npx prisma migrate deploy`.
 
+### Full-Stack Docker on Render
+
+Use this option when you want one Render Web Service to host both the API and React app.
+
+- Runtime: Docker
+- Root directory: leave empty or set `.`
+- Dockerfile path: `Dockerfile`
+- Health check path: `/health`
+- The React app is built into `apps/web/dist` and served by Express from the same Render URL.
+- Leave `VITE_API_URL` unset for Docker full-stack hosting so the frontend calls the API on the same origin.
+
 ### PostgreSQL on Supabase or Neon
 
 - Create a database.

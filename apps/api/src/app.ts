@@ -6,6 +6,8 @@ import morgan from "morgan";
 import swaggerJsdoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
 import { Role } from "@prisma/client";
+import { existsSync } from "node:fs";
+import path from "node:path";
 import { env } from "./config/env.js";
 import { sanitize } from "./middleware/sanitize.js";
 import { authenticate, authorize } from "./middleware/auth.js";
@@ -45,4 +47,13 @@ app.use("/checkins", checkinRoutes);
 app.use("/reports", reportRoutes);
 app.get("/audit-logs", authenticate, authorize(Role.ADMIN), auditLogs);
 app.use("/admin", adminRoutes);
+
+const webDistPath = path.resolve(process.cwd(), "../web/dist");
+if (existsSync(webDistPath)) {
+  app.use(express.static(webDistPath));
+  app.get("*", (_req, res) => {
+    res.sendFile(path.join(webDistPath, "index.html"));
+  });
+}
+
 app.use(errorHandler);
