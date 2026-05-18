@@ -56,6 +56,28 @@ API: `http://localhost:4000`
 Web: `http://localhost:5173`  
 Swagger docs: `http://localhost:4000/docs`
 
+## Full Local Docker
+
+This starts PostgreSQL and the full-stack GoalSync app. The app container runs Prisma migrations, seeds demo accounts, starts Express, and serves the React build.
+
+```bash
+docker compose up --build -d
+```
+
+Open:
+
+```text
+http://localhost:4000
+```
+
+Useful commands:
+
+```bash
+docker compose logs -f app
+docker compose down
+docker compose down -v
+```
+
 ## Environment Variables
 
 Backend variables live in `apps/api/.env`.

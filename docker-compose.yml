@@ -1,6 +1,7 @@
 services:
   postgres:
     image: postgres:16-alpine
+    container_name: goalsync-postgres
     environment:
       POSTGRES_DB: goalsync
       POSTGRES_USER: postgres
@@ -9,15 +10,36 @@ services:
       - "5432:5432"
     volumes:
       - goalsync_pg:/var/lib/postgresql/data
-  api:
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d goalsync"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    container_name: goalsync-app
     build:
       context: .
-      target: api
-    env_file:
-      - apps/api/.env
+      target: fullstack
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/goalsync?schema=public
+      DIRECT_URL: postgresql://postgres:postgres@postgres:5432/goalsync?schema=public
+      JWT_ACCESS_SECRET: local-docker-access-secret-change-for-production
+      JWT_REFRESH_SECRET: local-docker-refresh-secret-change-for-production
+      ACCESS_TOKEN_TTL: 15m
+      REFRESH_TOKEN_TTL: 7d
+      PORT: 4000
+      WEB_ORIGIN: http://localhost:4000
+      SMTP_HOST: ""
+      SMTP_PORT: 587
+      SMTP_USER: ""
+      SMTP_PASS: ""
+      MAIL_FROM: GoalSync <noreply@goalsync.com>
     ports:
       - "4000:4000"
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
+
 volumes:
   goalsync_pg:
