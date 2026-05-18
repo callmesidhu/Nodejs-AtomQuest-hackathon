@@ -61,6 +61,7 @@ Swagger docs: `http://localhost:4000/docs`
 Backend variables live in `apps/api/.env`.
 
 - `DATABASE_URL`
+- `DIRECT_URL`
 - `JWT_ACCESS_SECRET`
 - `JWT_REFRESH_SECRET`
 - `ACCESS_TOKEN_TTL`
@@ -104,6 +105,7 @@ Frontend variables live in `apps/web/.env`.
 - Build command: `npm install && npm run build`
 - Start command: `npm run start`
 - Set all API environment variables and point `DATABASE_URL` to Supabase or Neon.
+- For Supabase on Render, use the transaction pooler URL for `DATABASE_URL` and the direct database URL for `DIRECT_URL`.
 - Run Prisma migration before first deploy: `npx prisma migrate deploy`.
 
 ### PostgreSQL on Supabase or Neon
