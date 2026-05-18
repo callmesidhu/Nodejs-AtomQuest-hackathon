@@ -11,6 +11,8 @@
     "dev:web": "npm run dev --workspace apps/web",
     "build": "npm run build --workspace apps/api && npm run build --workspace apps/web",
     "lint": "npm run lint --workspace apps/api && npm run lint --workspace apps/web",
-    "seed": "npm run seed --workspace apps/api"
+    "seed": "npm run seed --workspace apps/api",
+    "start:full": "docker compose up --build --remove-orphans",
+    "stop:full": "docker compose down -v"
   }
 }

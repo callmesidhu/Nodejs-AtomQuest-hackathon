@@ -4,6 +4,22 @@
 
 GoalSync is a production-oriented in-house goal setting and tracking portal for enterprise HR performance workflows. It includes employee goal creation, L1 manager approvals, quarterly check-ins, admin governance, dashboards, reports, shared goals, email notifications, and audit logs.
 
+## Quick Start From Git
+
+```bash
+git clone https://github.com/callmesidhu/Nodejs-AtomQuest-hackathon
+cd AtomQuest
+npm install
+cp apps/api/.env.example apps/api/.env
+docker compose up -d postgres
+npm run migrate --workspace apps/api
+npm run seed
+npm run dev:api
+npm run dev:web
+```
+
+Open the app at `http://localhost:5173` and the API at `http://localhost:4000`.
+
 ## Stack
 
 - Frontend: React, TypeScript, Tailwind CSS, React Router, TanStack Query, Axios, Recharts
@@ -140,6 +156,7 @@ Use this option when you want one Render Web Service to host both the API and Re
 - Health check path: `/health`
 - The React app is built into `apps/web/dist` and served by Express from the same Render URL.
 - Leave `VITE_API_URL` unset for Docker full-stack hosting so the frontend calls the API on the same origin.
+- Set `DATABASE_URL` in Render. `DIRECT_URL` is optional here because the Docker entrypoint falls back to `DATABASE_URL` when `DIRECT_URL` is not provided.
 
 ### PostgreSQL on Supabase or Neon
 

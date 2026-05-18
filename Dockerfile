@@ -25,4 +25,4 @@ COPY --from=build /app/apps/api /app/apps/api
 COPY --from=build /app/apps/web/dist /app/apps/web/dist
 WORKDIR /app/apps/api
 EXPOSE 4000
-CMD ["sh", "-c", "npx prisma migrate deploy && npm run seed && npm run start"]
+CMD ["sh", "-c", "export DIRECT_URL=\"${DIRECT_URL:-$DATABASE_URL}\" && npx prisma migrate deploy && npm run seed && npm run start"]
